@@ -106,6 +106,33 @@
     "whatsapp": "",
     "whatsappMessage": "¡Acepto tu invitación a cenar! 💖"
   },
+  "gift": {
+    "teaser": "Espera… hay algo más 🎁",
+    "boxText": "Una sorpresa más para ti",
+    "boxHint": "Toca el regalo para abrirlo",
+    "kicker": "Otra sorpresa",
+    "emoji": "💆‍♀️",
+    "title": "Un día para consentirte",
+    "message": "Porque mereces descansar, relajarte y sentirte en las nubes. Este regalo es solo para ti.",
+    "voucher": {
+      "number": "8152",
+      "label": "Bono de regalo",
+      "brand": "Oriental",
+      "brandSub": "Centro terapéutico integral",
+      "fields": [
+        { "label": "De", "value": "Darwin Mercado" },
+        { "label": "Para", "value": "Andrea Anichiarico" },
+        { "label": "Regalo", "value": "Masaje Terapéutico Thai", "highlight": true },
+        { "label": "Válido", "value": "23 oct – 23 dic 2026" }
+      ],
+      "footer": ["📍 Cra 58 # 67-43", "💬 302 548 4377"]
+    },
+    "download": "bono-oriental.jpg",
+    "downloadName": "Bono Oriental - Masaje Thai.jpg",
+    "downloadButton": "Descargar bono 📥",
+    "bookButton": "Agendar mi cita 💬",
+    "bookUrl": "https://wa.me/573025484377?text=Hola%2C%20quiero%20agendar%20mi%20Masaje%20Terap%C3%A9utico%20Thai%20(bono%20No.%208152)"
+  },
   "letter": {
     "title": "Un año a tu lado",
     "paragraphs": [

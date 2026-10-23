@@ -372,14 +372,14 @@
     position: relative;
     width: 100%;
     max-width: 440px;
-    height: min(62vh, 440px);
+    height: min(66vh, 540px);
     perspective: 1100px;
     touch-action: pan-y;
   }
   .card {
     position: absolute;
     left: 50%; top: 50%;
-    width: min(64vw, 270px);
+    width: min(76vw, 340px, 46vh);
     aspect-ratio: 3 / 4;
     border-radius: 18px;
     overflow: hidden;
@@ -678,6 +678,187 @@
   .inv-done span { display: block; margin-top: 6px; font-size: 13px; color: var(--muted); }
   .invite-card.accepted .inv-actions { display: none; }
 
+  /* ---------- Regalo ---------- */
+  .gift-teaser {
+    display: none;
+    margin: 18px auto 0;
+    padding: 12px 26px;
+    border: 1px solid rgba(245, 163, 199, .6);
+    border-radius: 26px;
+    background: rgba(255, 61, 154, .12);
+    color: #fff;
+    font-family: 'Poppins', sans-serif;
+    font-size: 13px;
+    cursor: pointer;
+    box-shadow: 0 0 18px rgba(255, 61, 154, .4);
+    animation: pulse 1.8s ease-in-out infinite;
+  }
+  .gift-teaser.show { display: inline-block; animation: tick .6s ease, pulse 1.8s ease-in-out .6s infinite; }
+
+  .gift-box {
+    position: relative;
+    width: 170px;
+    height: 170px;
+    animation: wiggle 2.6s ease-in-out infinite;
+    filter: drop-shadow(0 18px 30px rgba(0, 0, 0, .5)) drop-shadow(0 0 24px rgba(255, 61, 154, .3));
+  }
+  @keyframes wiggle {
+    0%, 70%, 100% { transform: rotate(0); }
+    75% { transform: rotate(-6deg); }
+    80% { transform: rotate(6deg); }
+    85% { transform: rotate(-4deg); }
+    90% { transform: rotate(3deg); }
+  }
+  .gift-body, .gift-lid {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 8px;
+    background:
+      linear-gradient(90deg, transparent 42%, #ffd2e6 42%, #ffd2e6 58%, transparent 58%),
+      linear-gradient(160deg, #e0218a, #8e1f9e);
+  }
+  .gift-body { bottom: 0; width: 140px; height: 110px; }
+  .gift-lid {
+    top: 34px;
+    width: 160px;
+    height: 34px;
+    z-index: 2;
+    box-shadow: 0 6px 10px rgba(0, 0, 0, .3);
+    transition: transform .8s cubic-bezier(.3, 1.4, .5, 1), opacity .8s ease;
+  }
+  .gift-bow {
+    position: absolute;
+    left: 50%;
+    top: -34px;
+    transform: translateX(-50%);
+    font-size: 44px;
+  }
+  .gift-box.open { animation: none; }
+  .gift-box.open .gift-lid { transform: translate(-50%, -140px) rotate(-28deg); opacity: 0; }
+
+  /* La pantalla del regalo se desplaza completa para que se vea todo el bono */
+  #gift { overflow-y: auto; justify-content: flex-start; padding-bottom: 28px; scrollbar-width: none; }
+  #gift::-webkit-scrollbar { display: none; }
+  #gift .close-btn { position: fixed; }
+  #gift .invite-stage { height: auto; min-height: 100%; flex-shrink: 0; }
+  #giftBoxWrap.gone { display: none; }
+  .gift-card {
+    position: relative;
+    inset: auto;
+    height: auto;
+    overflow: visible;
+    justify-content: flex-start;
+  }
+  .gift-card:not(.show) { display: none; }
+  .gift-card.show { animation: rise .8s cubic-bezier(.2, .8, .25, 1); }
+  @keyframes rise {
+    from { opacity: 0; transform: translateY(60px) scale(.94); }
+    to { opacity: 1; transform: none; }
+  }
+  /* Bono de regalo hecho en HTML: papel crema con troquel lateral */
+  .voucher {
+    position: relative;
+    flex-shrink: 0;
+    margin: 22px 0 24px;
+    padding: 26px 22px 18px;
+    border-radius: 14px;
+    text-align: center;
+    color: #4a2a22;
+    background:
+      radial-gradient(circle at 0 58%, #1f0a26 13px, transparent 14px),
+      radial-gradient(circle at 100% 58%, #1f0a26 13px, transparent 14px),
+      radial-gradient(ellipse at 50% 0%, #fffaf3, #f6e8d8 80%);
+    box-shadow: 0 16px 36px rgba(0, 0, 0, .5), 0 0 30px rgba(255, 61, 154, .22);
+    transform: rotate(-1.2deg);
+  }
+  .voucher::before {
+    content: '';
+    position: absolute;
+    inset: 8px;
+    border: 1px solid rgba(150, 90, 70, .45);
+    outline: 1px solid rgba(150, 90, 70, .2);
+    outline-offset: 3px;
+    border-radius: 9px;
+    pointer-events: none;
+  }
+  .v-no {
+    position: absolute;
+    top: 16px; right: 20px;
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 11px;
+    color: #a2245f;
+  }
+  .v-label {
+    font-size: 9px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #9b6b5a;
+  }
+  .v-brand {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 1.1;
+    margin-top: 4px;
+    color: #5a2a1f;
+  }
+  .v-sub { font-size: 11px; color: #8a6151; margin-top: 2px; }
+  .v-orn { color: #c2457f; font-size: 16px; margin: 6px 0 10px; }
+  .v-fields {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 9px 10px;
+    text-align: left;
+    padding: 12px 6px 14px;
+    border-top: 1px dashed rgba(150, 90, 70, .4);
+    border-bottom: 1px dashed rgba(150, 90, 70, .4);
+  }
+  .v-fields dt {
+    font-size: 9.5px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: #9b6b5a;
+    padding-top: 3px;
+  }
+  .v-fields dd {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 15px;
+    color: #3d2018;
+    border-bottom: 1px solid rgba(150, 90, 70, .3);
+    padding-bottom: 2px;
+  }
+  .v-fields dd.hl { color: #a2245f; font-weight: 600; }
+  .v-foot {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 4px 14px;
+    margin-top: 12px;
+    font-size: 11px;
+    color: #6e4537;
+  }
+  .book-btn { display: block; text-decoration: none; flex-shrink: 0; }
+  .download-btn {
+    display: block;
+    flex-shrink: 0;
+    margin-top: 12px;
+    padding: 13px;
+    border-radius: 30px;
+    border: 1px solid rgba(245, 163, 199, .5);
+    background: rgba(70, 20, 70, .45);
+    color: #fff;
+    font-size: 13px;
+    font-weight: 500;
+    text-decoration: none;
+    box-shadow: 0 0 16px rgba(255, 61, 154, .18);
+    transition: box-shadow .3s ease;
+  }
+  .download-btn:hover { box-shadow: 0 0 26px rgba(255, 61, 154, .45); }
+
   @media (max-height: 700px) {
     .invite-card { padding: 32px 22px 24px; }
     .inv-icon { width: 60px; height: 60px; font-size: 28px; margin: 12px auto 10px; }
@@ -696,28 +877,28 @@
   .car-nav {
     display: flex;
     align-items: center;
-    gap: 18px;
-    margin: 14px 0 36px;
+    gap: 22px;
+    margin: 10px 0 34px;
   }
   .nav-btn {
-    width: 42px; height: 42px;
+    width: 56px; height: 56px;
     border-radius: 50%;
-    border: 1px solid rgba(255, 255, 255, .08);
-    background: rgba(255, 255, 255, .06);
+    border: 1px solid rgba(255, 255, 255, .1);
+    background: rgba(255, 255, 255, .07);
     color: #fff;
-    font-size: 16px;
+    font-size: 24px;
     cursor: pointer;
     transition: box-shadow .3s ease, background .3s ease;
   }
   .nav-btn:hover { box-shadow: 0 0 16px rgba(255, 61, 154, .5); background: rgba(255, 61, 154, .15); }
-  .dots { display: flex; gap: 5px; align-items: center; }
+  .dots { display: flex; gap: 7px; align-items: center; }
   .dots span {
-    width: 5px; height: 5px;
-    border-radius: 3px;
+    width: 8px; height: 8px;
+    border-radius: 4px;
     background: rgba(255, 255, 255, .35);
     transition: all .35s ease;
   }
-  .dots span.on { width: 18px; background: var(--pink); box-shadow: 0 0 8px var(--pink); }
+  .dots span.on { width: 28px; background: var(--pink); box-shadow: 0 0 8px var(--pink); }
 
   /* Carta / pergamino */
   #letter { justify-content: center; padding: 70px 16px 30px; }
@@ -962,7 +1143,43 @@
       <div class="inv-done" id="invDone">
         <strong id="invDoneTitle"></strong>
         <span id="invDoneNote"></span>
+        <button class="gift-teaser" id="giftTeaser"></button>
       </div>
+    </article>
+  </div>
+</section>
+
+<!-- ============ 3c. REGALO (tras aceptar la invitación) ============ -->
+<section class="overlay" id="gift">
+  <button class="close-btn" data-close aria-label="Cerrar">✕</button>
+  <div class="invite-stage">
+    <div class="envelope-wrap" id="giftBoxWrap">
+      <p class="env-text" id="giftBoxText"></p>
+      <div class="gift-box" id="giftBox">
+        <div class="gift-lid"><span class="gift-bow">🎀</span></div>
+        <div class="gift-body"></div>
+      </div>
+      <p class="env-hint" id="giftBoxHint"></p>
+    </div>
+    <article class="invite-card gift-card" id="giftCard">
+      <span class="corner tl"></span><span class="corner tr"></span>
+      <span class="corner bl"></span><span class="corner br"></span>
+      <p class="inv-kicker" id="giftKicker"></p>
+      <div class="inv-icon" id="giftIcon"></div>
+      <h3 class="inv-title" id="giftTitle"></h3>
+      <div class="inv-divider">♥</div>
+      <p class="inv-msg" id="giftMsg"></p>
+      <div class="voucher" id="voucher">
+        <span class="v-no" id="vNo"></span>
+        <p class="v-label" id="vLabel"></p>
+        <h4 class="v-brand" id="vBrand"></h4>
+        <p class="v-sub" id="vSub"></p>
+        <div class="v-orn">❦</div>
+        <dl class="v-fields" id="vFields"></dl>
+        <div class="v-foot" id="vFoot"></div>
+      </div>
+      <a class="inv-yes book-btn" id="giftBook" target="_blank" rel="noopener"></a>
+      <a class="download-btn" id="giftDownload"></a>
     </article>
   </div>
 </section>
@@ -1425,6 +1642,7 @@ function init(D) {
       burst(r.left + r.width / 2, r.top + r.height / 2, 44);
       card.classList.add('accepted');
       $('#invDone').classList.add('show');
+      if (D.gift) setTimeout(() => $('#giftTeaser').classList.add('show'), 1800);
       if (INV.whatsapp) {
         const url = `https://wa.me/${INV.whatsapp}?text=${encodeURIComponent(INV.whatsappMessage || INV.accepted)}`;
         setTimeout(() => window.open(url, '_blank'), 1400);
@@ -1443,6 +1661,78 @@ function init(D) {
     no.style.left = no.style.top = '';
     card.scrollTop = 0;
     $('#invite').classList.add('active');
+  }
+
+  /* ---------- Regalo (aparece después de aceptar la invitación) ---------- */
+  const GIFT = D.gift;
+  if (GIFT) {
+    const boxWrap = $('#giftBoxWrap');
+    const box = $('#giftBox');
+    const gcard = $('#giftCard');
+    $('#giftTeaser').textContent = GIFT.teaser;
+    $('#giftBoxText').textContent = GIFT.boxText;
+    $('#giftBoxHint').textContent = GIFT.boxHint;
+    $('#giftKicker').textContent = GIFT.kicker;
+    $('#giftIcon').textContent = GIFT.emoji;
+    $('#giftTitle').textContent = GIFT.title;
+    $('#giftMsg').textContent = GIFT.message;
+    // Bono armado con los datos de gift.voucher
+    const V = GIFT.voucher || {};
+    $('#vNo').textContent = V.number ? `No. ${V.number}` : '';
+    $('#vLabel').textContent = V.label;
+    $('#vBrand').textContent = V.brand;
+    $('#vSub').textContent = V.brandSub;
+    const fields = $('#vFields');
+    (V.fields || []).forEach(f => {
+      const dt = document.createElement('dt');
+      const dd = document.createElement('dd');
+      dt.textContent = f.label;
+      dd.textContent = f.value;
+      if (f.highlight) dd.className = 'hl';
+      fields.append(dt, dd);
+    });
+    (V.footer || []).forEach(t => {
+      const s = document.createElement('span');
+      s.textContent = t;
+      $('#vFoot').appendChild(s);
+    });
+    const book = $('#giftBook');
+    if (GIFT.bookUrl) {
+      book.href = GIFT.bookUrl;
+      book.textContent = GIFT.bookButton;
+    } else {
+      book.remove();
+    }
+    // Descarga del bono original (en iPhone se abre la imagen y se guarda desde ahí)
+    const dl = $('#giftDownload');
+    if (GIFT.download) {
+      dl.href = GIFT.download;
+      dl.download = GIFT.downloadName || GIFT.download.split('/').pop();
+      dl.textContent = GIFT.downloadButton;
+    } else {
+      dl.remove();
+    }
+
+    let opened = false;
+    $('#giftTeaser').addEventListener('click', () => {
+      closeOverlays();
+      box.classList.remove('open');
+      boxWrap.classList.toggle('gone', opened);
+      gcard.classList.toggle('show', opened);
+      $('#gift').scrollTop = 0;
+      $('#gift').classList.add('active');
+    });
+    boxWrap.addEventListener('click', () => {
+      if (box.classList.contains('open')) return;
+      box.classList.add('open');
+      const r = box.getBoundingClientRect();
+      burst(r.left + r.width / 2, r.top + r.height / 3, 40);
+      setTimeout(() => {
+        opened = true;
+        boxWrap.classList.add('gone');
+        gcard.classList.add('show');
+      }, 900);
+    });
   }
   const prevBtn = $('#prevBtn');
   const nextBtn = $('#nextBtn');
