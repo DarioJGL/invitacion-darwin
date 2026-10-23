@@ -1,0 +1,121 @@
+{
+  "pageTitle": "Feliz Aniversario",
+  "theme": {
+    "pink": "#ff3d9a",
+    "pink2": "#e0218a",
+    "purple": "#a42bd9",
+    "rose": "#f5a3c7"
+  },
+  "couple": {
+    "names": "Darwin y Andrea",
+    "startDate": "2025-10-26T00:00:00"
+  },
+  "lock": {
+    "icon": "❤️",
+    "title": "FELIZ ANIVERSARIO",
+    "subtitle": "Ingresa nuestra fecha para desbloquear",
+    "code": "261025",
+    "errorMessage": "Mmm… esa no es 😅",
+    "hint": "Pista: el día que empezamos (DDMMAA) 💭",
+    "failsBeforeHint": 3
+  },
+  "main": {
+    "title": "NUESTRO TIEMPO\nJUNTOS",
+    "since": "Desde el {dia} de {mes} de {anio}",
+    "labels": {
+      "years": "Años",
+      "months": "Meses",
+      "days": "Días",
+      "hours": "Horas",
+      "minutes": "Minutos",
+      "seconds": "Segundos"
+    },
+    "memoriesButton": "Ver recuerdos",
+    "letterButton": "Leer carta"
+  },
+  "music": {
+    "url": "https://www.youtube.com/watch?v=weKJWqw8-3g",
+    "autoplay": true
+  },
+  "memories": {
+    "title": "Nuestros recuerdos",
+    "items": [
+      {
+        "img": "1.jpeg",
+        "caption": "Cómo empezó todo ✨",
+        "emoji": "💞"
+      },
+      {
+        "img": "2.jpeg",
+        "caption": "Nuestro día 💖",
+        "emoji": "🏰"
+      },
+      {
+        "img": "3.jpeg",
+        "caption": "Nuestras tonterías favoritas 😜",
+        "emoji": "😜"
+      },
+      {
+        "img": "4.jpeg",
+        "caption": "Cada comida, cada risa 🍝😂",
+        "emoji": "🍝"
+      },
+      {
+        "img": "5.jpeg",
+        "caption": "Los lugares que descubrimos juntos 🏞️",
+        "emoji": "🏞️"
+      }
+    ]
+  },
+  "invite": {
+    "envelopeText": "Tienes una invitación 💌",
+    "envelopeHint": "Toca el sobre para abrirlo",
+    "openButton": "Una sorpresa 💌",
+    "kicker": "Una última sorpresa",
+    "emoji": "🍽️",
+    "title": "¿Salimos a comer?",
+    "message": "Para celebrar nuestro primer aniversario te invito a una cena especial, solo tú y yo.",
+    "details": [
+      {
+        "icon": "📅",
+        "label": "Fecha",
+        "text": "Lunes 26 de octubre"
+      },
+      {
+        "icon": "🕢",
+        "label": "Hora",
+        "text": "7:30 p. m."
+      },
+      {
+        "icon": "📍",
+        "label": "Lugar",
+        "text": "Toro McCoy · Barranquilla",
+        "wide": true
+      },
+      {
+        "icon": "🥂",
+        "label": "Mesa",
+        "text": "Para 2, ya reservada",
+        "wide": true
+      }
+    ],
+    "yes": "¡Sí, acepto! 💖",
+    "no": "No",
+    "accepted": "¡Es una cita! 💕",
+    "acceptedNote": "Nos vemos el lunes a las 7:30 p. m.",
+    "whatsapp": "",
+    "whatsappMessage": "¡Acepto tu invitación a cenar! 💖"
+  },
+  "letter": {
+    "title": "Un año a tu lado",
+    "paragraphs": [
+      "Hoy echamos la vista atrás y nos damos cuenta de que ya ha pasado un año entero desde que empezamos este camino juntos. Parece increíble lo rápido que vuela el tiempo cuando estás al lado de la persona adecuada, pero al mismo tiempo siento que nos conocemos de toda la vida.",
+      "En estos doce meses me he dado cuenta de lo fácil que es querer de verdad cuando hay complicidad, risas verdaderas y apoyo mutuo. Contigo no solo he encontrado a una pareja increíble, sino a mi persona favorita para compartir los momentos importantes, las locuras del día a día y cada plan improvisado.",
+      "Gracias por cada abrazo que calma, por cada mirada que lo dice todo sin necesidad de hablar y por hacer que lo cotidiano se vuelva especial. Gracias también por tu paciencia, por construir conmigo día a día esta relación y por acompañarme tal y como soy.",
+      "Este primer aniversario no es más que el principio de todo lo que nos queda por vivir, viajar, reír y celebrar juntos. Me hace verdaderamente feliz saber que el viaje continúa y que lo sigo haciendo de tu mano.",
+      "Feliz primer aniversario, mi amor. Por este año y por todos los que están por venir."
+    ],
+    "signature": "Te quiero con locura",
+    "button": "Te amo ❤️"
+  }
+}
